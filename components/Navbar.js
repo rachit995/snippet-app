@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0';
+import { FiCode } from 'react-icons/fi'
 
 const Navbar = () => {
   const { user, isLoading } = useUser();
@@ -8,9 +9,7 @@ const Navbar = () => {
       <Link href="/">
         <a className="text-2xl mb-2 block flex justify-center text-purple-200 ">
           <span className='flex items-center'>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mx-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg> Snippets App
+            <FiCode className='mx-2' /> Snippets App
           </span>
 
         </a>

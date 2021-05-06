@@ -1,10 +1,18 @@
-import { updateSnippet } from "../../utils/Fauna"
+import { getSession, withApiAuthRequired } from "@auth0/nextjs-auth0"
+import { getSnippetById, updateSnippet } from "../../utils/Fauna"
 
-export default async function handler(req, res) {
+export default withApiAuthRequired(async function handler(req, res) {
   if (req.method !== 'PUT') {
     return res.status(405).json({ msg: 'Method not allowed.' })
   }
+  const session = getSession(req, res)
+  const userId = session.user.sub
+
   const { id, code, language, description, name } = req.body
+  const existingRecord = await getSnippetById(id)
+  if (!existingRecord || existingRecord.data.userId !== userId) {
+    return res.state(404).json({ msg: 'Record not found.' })
+  }
   try {
     const updatedSnippet = await updateSnippet({ id, code, language, description, name })
     return res.status(200).json(updatedSnippet)
@@ -13,4 +21,4 @@ export default async function handler(req, res) {
     console.error(err)
     res.status(500).json({ msg: 'Something went wrong.' })
   }
-}
+})

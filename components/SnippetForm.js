@@ -43,7 +43,7 @@ function SnippetForm({ snippet }) {
   return (
     <form onSubmit={handleSubmit(snippet ? updateSnippet : createSnippet)}>
       <div className="mb-4">
-        <label htmlFor="name" className="block text-red-100 text-sm font-bold mb-1">
+        <label htmlFor="name" className="block text-purple-100 text-sm font-bold mb-1">
           Name
         </label>
         <input
@@ -54,7 +54,7 @@ function SnippetForm({ snippet }) {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="language" className="block text-red-100 text-sm font-bold mb-1">
+        <label htmlFor="language" className="block text-purple-100 text-sm font-bold mb-1">
           Language
         </label>
         <select
@@ -70,7 +70,7 @@ function SnippetForm({ snippet }) {
       </div>
       <div className="mb-4">
         <label
-          className="block text-red-100 text-sm font-bold mb-1"
+          className="block text-purple-100 text-sm font-bold mb-1"
           htmlFor="description"
         >
           Description
@@ -86,7 +86,7 @@ function SnippetForm({ snippet }) {
       </div>
       <div className="mb-4">
         <label
-          className="block text-red-100 text-sm font-bold mb-1"
+          className="block text-purple-100 text-sm font-bold mb-1"
           htmlFor="code"
         >
           Code

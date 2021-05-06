@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import useSWR from 'swr'
+import Header from '../components/Header'
 import Snippet from '../components/Snippet'
 
 export default function Home() {
@@ -15,17 +16,10 @@ export default function Home() {
 
       <main>
         <div className="my-12">
-          <h1 className="text-purple-100 text-2xl">
-            Snippet App
-          </h1>
-          <p className="text-purple-200">
-            Create and browse snippets in Web Development!
-          </p>
-          <Link href="/new">
-            <a className="mt-3 inline-block bg-purple-900 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-              Create a Snippet!
-            </a>
-          </Link>
+          <Header
+            title="Snippets App"
+            subtitle="Create and browse snippets in web development"
+          />
         </div>
         {
           snippets &&
